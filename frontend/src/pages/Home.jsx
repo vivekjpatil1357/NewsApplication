@@ -70,7 +70,7 @@ export default function Home() {
           },
         }}
       >
-        {newsData.map((news, index) => (
+        {newsData?.map((news, index) => (
           <a href={news.url}><NewsCard key={index} news={news} /></a>
           
         ))}
