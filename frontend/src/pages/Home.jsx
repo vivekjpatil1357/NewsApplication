@@ -11,7 +11,14 @@ export default function Home() {
     setLoading(true);
     fetch(
       `https://newsapi.org/v2/everything?q=${searchTerm}&sortBy=publishedAt&apiKey=b9e01e893a7c40e8b6ed48449be5898b`
-    )
+      , {
+        method: "GET",
+        headers: {
+          "Accept": "application/json",
+          "Upgrade-Insecure-Requests": "1",
+        },
+      }
+)
       .then((data) => data.json())
       .then((data) => {
         setNewsData(data.articles);
