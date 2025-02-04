@@ -1,11 +1,16 @@
 const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
-
+const cors = require('cors')
 const app = express();
 const PORT = 3000;
 const NEWS_API_KEY = process.env.NEWS_API_KEY; // Store API key in .env file
 
+app.use(cors({
+    origin: "https://news-application-silk-eta.vercel.app",
+    methods: "GET, POST, PUT, DELETE",
+    credentials: true
+  }));
 app.get('/:query', async (req, res) => {
     try {
         const { query } = req.params;
