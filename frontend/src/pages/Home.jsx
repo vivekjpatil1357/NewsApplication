@@ -10,7 +10,7 @@ export default function Home() {
   const getNews = async () => {
     setLoading(true);
     fetch(
-      `http://localhost:3000/${searchTerm}`
+      `https://newsapplication-z81a.onrender.com/${searchTerm}`
       , {
         method: "GET"
       }

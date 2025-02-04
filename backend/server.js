@@ -9,6 +9,7 @@ const NEWS_API_KEY = process.env.NEWS_API_KEY; // Store API key in .env file
 app.get('/:query', async (req, res) => {
     try {
         const { query } = req.params;
+        console.log("got ",query);
         if (!query) {
             return res.status(400).json({ error: "Query parameter is required" });
         }
