@@ -19,15 +19,8 @@ app.get('/:query', async (req, res) => {
             return res.status(400).json({ error: "Query parameter is required" });
         }
 
-        const response = await axios.get('https://newsapi.org/v2/everything', {
-            params: {
-                q: query,
-                sortBy: 'publishedAt', // Sorting by date
-                language: 'en',
-                country: 'in', // News from India
-                apiKey: NEWS_API_KEY
-            }
-        });
+        const response = await axios.get(`https://newsapi.org/v2/everything?q=${query}&sortBy=publishedAt&apiKey=${NEWS_API_KEY}`)
+        
 
         res.json(response.data);
     } catch (error) {
